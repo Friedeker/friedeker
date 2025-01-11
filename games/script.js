@@ -1,21 +1,22 @@
-// Funkce pro otevření konkrétní záložky
-function openTab(gameId) {
-    // Skryje všechny herní sekce
-    var games = document.querySelectorAll('.tab-content');
-    games.forEach(function(game) {
-        game.style.display = 'none';
-    });
+// Vytvoření efektu kurzoru
+const cursor = document.createElement('div');
+cursor.classList.add('cursor');
+document.body.appendChild(cursor);
 
-    // Zobrazí vybraný obsah
-    var selectedGame = document.getElementById(gameId);
-    selectedGame.style.display = 'block';
-}
+// Aktualizace pozice kurzoru
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+});
 
-// Spustí se při načtení stránky
-window.onload = function() {
-    // Po načtení stránky všechny sekce zůstávají skryté
-    var games = document.querySelectorAll('.tab-content');
-    games.forEach(function(game) {
-        game.style.display = 'none';
-    });
-};
+// Skrytí kurzoru při nečinnosti
+let timeout;
+document.addEventListener('mousemove', () => {
+  cursor.style.display = 'block';
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    cursor.style.display = 'none';
+  }, 2000);
+});
+
+console.log(document.querySelector('.watermark'));
