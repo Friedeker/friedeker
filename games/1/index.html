@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hra - Uhádni číslo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Odkaz na CSS soubor pro hru -->
+</head>
+
+<body>
+    <div class="game-container">
+        <h2>Uhádni číslo</h2>
+        <p>Hádej číslo mezi 1 a 100!</p>
+        
+        <div>
+            <input type="number" id="guess" placeholder="Tvůj tip" min="1" max="100" required>
+            <button id="check">Zkontrolovat</button>
+        </div>
+        
+        <p id="message"></p>
+        <p>Počet pokusů: <span id="attempts">10</span></p>
+        <p>Skóre: <span id="score">0</span></p>
+        <p id="icon"></p>
+
+        <!-- Tlačítka pro návrat na výběr her nebo úvodní stránku -->
+        <div class="navigation-buttons">
+            <button onclick="window.location.href='../games.html'">Návrat na výběr her</button>
+            <button onclick="window.location.href='../../index.html'">Návrat na úvodní stránku</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

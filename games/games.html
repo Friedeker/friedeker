@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hry</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="tab-container">
+        <!-- Menu záložek -->
+        <div class="tabs">
+            <div class="tab" id="tab1" onmouseover="showTooltip('Uhádni číslo')" onmouseout="hideTooltip()">
+                <button class="tab-button" onclick="openTab('game1')">Uhádni číslo</button>
+                <div class="tooltip">Uhádni číslo</div>
+            </div>
+            <div class="tab" id="tab2" onmouseover="showTooltip('Další hra')" onmouseout="hideTooltip()">
+                <button class="tab-button" onclick="openTab('game2')">Další hra</button>
+                <div class="tooltip">Další hra</div>
+            </div>
+        </div>
+
+        <!-- Obsah her (skrytý na začátku) -->
+        <div id="game1" class="tab-content" style="display: none;">
+            <h2>Uhádni číslo</h2>
+            <p>Hádej číslo mezi 1 a 100!</p>
+            <input type="number" id="guess" placeholder="Tvůj tip">
+            <button id="check">Zkontrolovat</button>
+            <p id="message"></p>
+        </div>
+
+        <div id="game2" class="tab-content" style="display: none;">
+            <h2>Další hra</h2>
+            <p>Tady bude obsah další hry...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
