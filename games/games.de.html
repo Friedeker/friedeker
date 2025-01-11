@@ -19,25 +19,24 @@
                 <div class="tooltip">Errate die Zahl</div>
             </div>
             <div class="tab" id="tab2" onmouseover="showTooltip('Weiteres Spiel')" onmouseout="hideTooltip()">
-                <button class="tab-button" onclick="openTab('game2')">Weiteres Spiel</button>
+                <button class="tab-button" onclick="showComingSoonMessage()">Weiteres Spiel</button>
                 <div class="tooltip">Weiteres Spiel</div>
             </div>
         </div>
-
-        <!-- Obsah her (skrytý na začátku) -->
-        <div id="game1" class="tab-content" style="display: none;">
-            <h2>Errate die Zahl</h2>
-            <p>Errate die Zahl zwischen 1 und 100!</p>
-            <input type="number" id="guess" placeholder="Deine Schätzung">
-            <button id="check">Überprüfen</button>
-            <p id="message"></p>
-        </div>
-
-        <div id="game2" class="tab-content" style="display: none;">
-            <h2>Weiteres Spiel</h2>
-            <p>Hier wird der Inhalt eines weiteren Spiels angezeigt...</p>
-        </div>
     </div>
+
+    <!-- Zpráva o připravované hře -->
+    <div id="comingSoonMessage" style="display: none;">
+        <p>Dieses Spiel wird bald hinzugefügt!</p>
+    </div>
+
+    <script>
+        function showComingSoonMessage() {
+            // Skrýt všechny existující zprávy
+            const messageElement = document.getElementById('comingSoonMessage');
+            messageElement.style.display = 'block'; // Zobrazit zprávu
+        }
+    </script>
 
     <!-- Odkaz na externí JavaScript -->
     <script src="script.de.js"></script>
