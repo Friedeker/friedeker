@@ -1,85 +1,74 @@
-// Inicializace proměnných
-let score = 0;
-let attempts = 10;
 let randomNumber = Math.floor(Math.random() * 100) + 1;
-let timer;
+let attempts = 10;
+let score = 0;
+let minRange = 1;
+let maxRange = 100;
+let timer = 60;
+let timerInterval;
 
-// Funkce pro kontrolu čísla
-document.getElementById("check").addEventListener("click", function() {
-    const guess = document.getElementById("guess").value;
-    const message = document.getElementById("message");
-    const icon = document.getElementById("icon");
+document.getElementById("check").addEventListener("click", checkGuess);
 
-    // Kontrola, zda je zadané číslo v rozsahu
-    if (guess < 1 || guess > 100 || isNaN(guess)) {
-        message.textContent = "Zadejte číslo v rozmezí 1 až 100!";
-        message.style.color = "red";
+function checkGuess() {
+    const guess = parseInt(document.getElementById("guess").value);
+
+    if (isNaN(guess) || guess < minRange || guess > maxRange) {
+        document.getElementById("message").textContent = "Zadej platné číslo v rozsahu!";
         return;
     }
 
-    // Snížení počtu pokusů
+    if (guess === randomNumber) {
+        document.getElementById("message").textContent = "Gratulujeme! Uhodl jsi číslo.";
+        clearInterval(timerInterval);
+        return;
+    } else if (guess < randomNumber) {
+        minRange = Math.max(minRange, guess + 1);
+        document.getElementById("message").textContent = "Číslo je větší!";
+    } else {
+        maxRange = Math.min(maxRange, guess - 1);
+        document.getElementById("message").textContent = "Číslo je menší!";
+    }
+
     attempts--;
     document.getElementById("attempts").textContent = attempts;
 
-    if (guess == randomNumber) {
-        message.textContent = "Správně!";
-        message.style.color = "green";
-        icon.innerHTML = "👍"; // Zobrazí palec nahoru
-        score++;
-        document.getElementById("score").textContent = score;
-        clearInterval(timer); // Zastaví časovač, pokud je hra vyhraná
-        disableInput();
-    } else {
-        message.textContent = guess > randomNumber ? "Příliš vysoké!" : "Příliš nízké!";
-        message.style.color = "red";
+    if (attempts === 0) {
+        document.getElementById("message").textContent = "Prohra! Došly ti pokusy.";
+        clearInterval(timerInterval);
     }
 
-    // Konec hry, pokud nejsou žádné pokusy
-    if (attempts == 0) {
-        message.textContent = "Prohráli jste! Číslo bylo " + randomNumber;
-        message.style.color = "red";
-        icon.innerHTML = "😞"; // Smutný obličej
-        clearInterval(timer);
-        disableInput();
-    }
-});
-
-// Funkce pro deaktivaci vstupu po ukončení hry
-function disableInput() {
-    document.getElementById("guess").disabled = true;
-    document.getElementById("check").disabled = true;
+    updateRangeGraph();
 }
 
-// Funkce pro restartování hry
-function restartGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-    attempts = 10;
-    score = 0;
-    document.getElementById("attempts").textContent = attempts;
-    document.getElementById("score").textContent = score;
-    document.getElementById("message").textContent = "";
-    document.getElementById("icon").innerHTML = "";
-    document.getElementById("guess").disabled = false;
-    document.getElementById("check").disabled = false;
-    document.getElementById("guess").value = "";
-    startTimer(); // Spustí nový odpočet
+function updateRangeGraph() {
+    const canvas = document.getElementById("graphCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Vyčistíme canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const unitWidth = canvas.width / 100;
+
+    // Vybarvíme aktuální rozsah
+    ctx.fillStyle = "green";
+    ctx.fillRect(minRange * unitWidth, 0, (maxRange - minRange) * unitWidth, canvas.height);
+
+    // Aktualizujeme popisky pod grafem
+    document.getElementById("minLabel").textContent = `${minRange}`;
+    document.getElementById("maxLabel").textContent = `${maxRange}`;
 }
 
-// Funkce pro spuštění odpočtu
 function startTimer() {
-    let timeLeft = 30; // Čas na hru je 30 sekund
-    document.getElementById("message").textContent = "Zbývá čas: " + timeLeft + " sekund";
-    timer = setInterval(function() {
-        timeLeft--;
-        document.getElementById("message").textContent = "Zbývá čas: " + timeLeft + " sekund";
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            document.getElementById("message").textContent = "Čas vypršel! Číslo bylo " + randomNumber;
-            document.getElementById("icon").innerHTML = "😞"; // Smutný obličej
-            disableInput();
+    timerInterval = setInterval(() => {
+        timer--;
+        document.getElementById("timer").textContent = timer;
+
+        if (timer === 0) {
+            document.getElementById("message").textContent = "Čas vypršel! Prohra.";
+            clearInterval(timerInterval);
         }
     }, 1000);
 }
 
-// Spuštění odpočtu při načtení stránky
+// Spustíme časovač a vykreslíme první graf
 startTimer();
+updateRangeGraph();
