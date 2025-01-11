@@ -17,7 +17,7 @@ function checkGuess() {
     }
 
     if (guess === randomNumber) {
-        document.getElementById("message").textContent = "Gratulujeme! Uhodl jsi číslo.";
+        document.getElementById("message").textContent = "Gratulujeme! Uhodl(a) jsi číslo.";
         clearInterval(timerInterval);
         return;
     } else if (guess < randomNumber) {
