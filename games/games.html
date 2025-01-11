@@ -19,11 +19,24 @@
                 <div class="tooltip">Uhádni číslo</div>
             </div>
             <div class="tab" id="tab2" onmouseover="showTooltip('Další hra')" onmouseout="hideTooltip()">
-                <button class="tab-button" onclick="openTab('game2')">Další hra</button>
+                <button class="tab-button" onclick="showComingSoonMessage()">Další hra</button>
                 <div class="tooltip">Další hra</div>
             </div>
         </div>
     </div>
+
+    <!-- Zpráva o připravované hře -->
+    <div id="comingSoonMessage" style="display: none;">
+        <p>Tato hra bude brzy přidána!</p>
+    </div>
+
+    <script>
+        function showComingSoonMessage() {
+            // Skrýt všechny existující zprávy
+            const messageElement = document.getElementById('comingSoonMessage');
+            messageElement.style.display = 'block'; // Zobrazit zprávu
+        }
+    </script>
 
     <script src="script.js"></script>
 </body>
