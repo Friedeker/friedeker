@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiel - Errate die Zahl</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Spiel - Errate die Zahl</h1>
+        <p class="instructions">Errate eine Zahl zwischen 1 und 100! Du hast begrenzte Zeit und Versuche.</p>
+        
+        <div class="guess-section">
+            <input type="number" id="guess" placeholder="Deine Schätzung" min="1" max="100" required>
+            <button id="check">Überprüfen</button>
+        </div>
+
+        <div class="stats">
+            <p id="message"></p>
+            <p>Versuche: <span id="attempts">10</span></p>
+            <p>Punktzahl: <span id="score">0</span></p>
+            <p>Verbleibende Zeit: <span id="timer">60</span> Sekunden</p>
+        </div>
+
+        <div class="graph-container">
+            <canvas id="graphCanvas" width="600" height="100"></canvas>
+            <div class="range-labels">
+                <span id="minLabel"></span>
+                <span id="maxLabel"></span>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button onclick="window.location.href='../games.de.html'">Zurück zur Spielauswahl</button>
+            <button onclick="window.location.href='../../index.de.html'" class="right">Zurück zur Startseite</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <div class="watermark">Miroslav Uhlíř</div> 
+
+    <div class="language-switcher">
+		<a href="index.html" class="language-link">
+			Česky
+		</a>
+	</div>
+</body>
+
+</html>
