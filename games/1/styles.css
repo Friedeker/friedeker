@@ -90,3 +90,45 @@ canvas {
 .navigation-buttons .right {
     margin-left: auto;
 }
+
+  
+  .watermark {
+    position: absolute;
+    bottom: 10px; /* Vzdálenost od spodního okraje */
+    right: 30px; /* Vzdálenost od pravého okraje */
+    font-size: 12px; /* Zmenšení textu */
+    color: rgba(0, 0, 0, 0.5); /* Poloprůhledná černá pro lepší viditelnost */
+    font-family: Arial, sans-serif;
+    pointer-events: none; /* Zabrání interakci s vodoznakem */
+    z-index: 9999; /* Zajistí, že bude vodoznak nad ostatním obsahem */
+  }
+  
+  
+  .cursor {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: pulse 1s infinite;
+    }
+
+     /* Přepínač jazyků */
+  .language-switcher {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 16px;
+  }
+  
+  .language-switcher a {
+	text-decoration: none;
+	color: rgba(rgba(187, 255, 0, 0.685)); 
+	margin: 0 5px;
+	font-weight: bold;
+  }
+  
+  .language-switcher a:hover {
+	color: #000;
+  }
