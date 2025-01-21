@@ -1,77 +1,75 @@
-/* Obecné nastavení */
 body {
-	margin: 0;
-	padding: 0;
-	font-family: 'Poppins', sans-serif;
-	background: linear-gradient(120deg, #89f7fe, #66a6ff);
-	color: #fff;
-	text-align: center;
-	overflow: hidden;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background: linear-gradient(120deg, #89f7fe, #66a6ff), 
-				url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="50"><text x="10" y="30" fill="rgba(0,0,0,0.1)" font-size="20" font-family="Arial">Tvé jméno</text></svg>') no-repeat center center;
-	background-size: cover, contain;
-  }
-  
-  /* Přepínač jazyků */
-  .language-switcher {
-	position: absolute;
-	top: 10px;
-	right: 20px;
-	font-size: 16px;
-  }
-  
-  .language-switcher a {
-	text-decoration: none;
-	color: #fff;
-	margin: 0 5px;
-	font-weight: bold;
-  }
-  
-  .language-switcher a:hover {
-	color: #000;
-  }
-  
-  /* Hlavní obsah */
-  .construction {
-	max-width: 600px;
-	background: rgba(0, 0, 0, 0.5);
-	padding: 30px;
-	border-radius: 15px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .construction h1 {
-	font-size: 2.5rem;
-	margin-bottom: 10px;
-  }
-  
-  .construction p {
-	font-size: 1.2rem;
-	margin-bottom: 20px;
-  }
-  
-  .button {
-	display: inline-block;
-	padding: 10px 20px;
-	font-size: 1rem;
-	color: #fff;
-	background: #ff6b6b;
-	border: none;
-	border-radius: 5px;
-	text-decoration: none;
-	transition: background 0.3s ease;
-  }
-  
-  .button:hover {
-	background: #ee5253;
-  }
-  
-  /* Pulzující kurzor */
-  .cursor {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input {
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003d80;
+}
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+
+
+.watermark {
+  position: absolute;
+  bottom: 10px; /* Vzdálenost od spodního okraje */
+  right: 30px; /* Vzdálenost od pravého okraje */
+  font-size: 12px; /* Zmenšení textu */
+  color: rgba(0, 0, 0, 0.5); /* Poloprůhledná černá pro lepší viditelnost */
+  font-family: Arial, sans-serif;
+  pointer-events: none; /* Zabrání interakci s vodoznakem */
+  z-index: 9999; /* Zajistí, že bude vodoznak nad ostatním obsahem */
+}
+
+
+.cursor {
 	position: absolute;
 	width: 15px;
 	height: 15px;
@@ -80,51 +78,4 @@ body {
 	pointer-events: none;
 	animation: pulse 1s infinite;
   }
-  
-  @keyframes pulse {
-	0% {
-	  transform: scale(1);
-	  opacity: 1;
-	}
-	100% {
-	  transform: scale(3);
-	  opacity: 0;
-	}
-  }
 
-  /* Vodoznak vpravo dole */
-.watermark {
-	position: absolute;
-	bottom: 10px; /* Vzdálenost od spodního okraje */
-	right: 10px; /* Vzdálenost od pravého okraje */
-	font-size: 12px; /* Zmenšení textu */
-	color: rgba(255, 255, 255, 0.836); /* Poloprůhledný text */
-	font-family: Arial, sans-serif;
-	pointer-events: none; /* Zabrání interakci s vodoznakem */
-}
-
-.counter {
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.527);
-}
-
-@media (max-width: 768px) {
-    .counter {
-        font-size: 1rem;
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-    }
-}
