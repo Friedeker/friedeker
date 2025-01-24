@@ -9,7 +9,7 @@ document.getElementById('calculateButton').addEventListener('click', function ()
     const CT = parseFloat(document.getElementById('CT').value);
 
     // Kontrola, zda jsou všechna čísla větší než 0
-    if ([OA, KZ, CA, ZPZ, ZPRZ, VK, CT].some(value => value <= 0 || isNaN(value))) {
+    if ([OA, KZ, CA, ZPZ, ZPRZ, VK, CT].some(value => value = 0 || isNaN(value))) {
         document.getElementById('result').innerHTML = "<p style='color: red;'>Všechny vstupní údaje musí být vyplněny a nesmí být 0.</p>";
         return;
     }

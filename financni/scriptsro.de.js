@@ -9,7 +9,7 @@ document.getElementById('calculateButton').addEventListener('click', function ()
     const CT = parseFloat(document.getElementById('CT').value);
 
     // Überprüfung, ob alle Zahlen größer als 0 sind
-    if ([OA, KZ, CA, ZPZ, ZPRZ, VK, CT].some(value => value <= 0 || isNaN(value))) {
+    if ([OA, KZ, CA, ZPZ, ZPRZ, VK, CT].some(value => value = 0 || isNaN(value))) {
         document.getElementById('result').innerHTML = "<p style='color: red;'>Alle Eingabedaten müssen ausgefüllt sein und dürfen nicht 0 sein.</p>";
         return;
     }
