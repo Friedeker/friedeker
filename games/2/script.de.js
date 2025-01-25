@@ -14,9 +14,9 @@ let objectInterval = 1000; // Počáteční interval generování objektů
 
 // Aktualizace zobrazení skóre, levelu a životů
 function updateDisplay() {
-    scoreDisplay.textContent = `Skóre: ${points}`;
+    scoreDisplay.textContent = `Punkte: ${points}`;
     levelDisplay.textContent = `Level: ${level}`;
-    livesDisplay.textContent = `Životy: ${lives}`;
+    livesDisplay.textContent = `Leben: ${lives}`;
 }
 
 // Pohyb košíku
