@@ -3,6 +3,8 @@ const gameArea = document.getElementById("game-area");
 const scoreDisplay = document.getElementById("points");
 const levelDisplay = document.getElementById("level");
 const livesDisplay = document.getElementById("lives");
+const leftButton = document.getElementById("left-button");
+const rightButton = document.getElementById("right-button");
 
 let points = 0;
 let level = 1;
@@ -12,20 +14,40 @@ let objectInterval = 1000; // Počáteční interval generování objektů
 
 // Aktualizace zobrazení skóre, levelu a životů
 function updateDisplay() {
-    scoreDisplay.textContent = `Punkte: ${points}`;
+    scoreDisplay.textContent = `Skóre: ${points}`;
     levelDisplay.textContent = `Level: ${level}`;
-    livesDisplay.textContent = `Leben: ${lives}`;
+    livesDisplay.textContent = `Životy: ${lives}`;
 }
 
-// Pohyb košíku pomocí šipek
-document.addEventListener("keydown", (event) => {
+// Pohyb košíku
+function moveBasket(direction) {
     const basketPosition = basket.offsetLeft;
-    if (event.key === "ArrowLeft" && basketPosition > 0) {
-        basket.style.left = basketPosition - 50 + "px";
-    } else if (event.key === "ArrowRight" && basketPosition + basket.offsetWidth < gameArea.offsetWidth) {
-        basket.style.left = basketPosition + 50 + "px";
+    const basketWidth = basket.offsetWidth;
+    const gameAreaWidth = gameArea.offsetWidth;
+
+    if (direction === "left" && basketPosition > 0) {
+        basket.style.left = basketPosition - 50 + "px"; // Posun vlevo
+    } else if (direction === "right" && basketPosition + basketWidth < gameAreaWidth) {
+        basket.style.left = basketPosition + 50 + "px"; // Posun vpravo
+    }
+}
+
+// Pohyb košíku pomocí klávesnice
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+        moveBasket("left");
+    } else if (event.key === "ArrowRight") {
+        moveBasket("right");
     }
 });
+
+// Pohyb košíku pomocí tlačítek
+leftButton.addEventListener("click", () => moveBasket("left"));
+leftButton.addEventListener("touchstart", () => moveBasket("left")); // Podpora pro dotyková zařízení
+
+rightButton.addEventListener("click", () => moveBasket("right"));
+rightButton.addEventListener("touchstart", () => moveBasket("right")); // Podpora pro dotyková zařízení
+
 
 // Generování padajících objektů
 function createObject() {
@@ -76,8 +98,8 @@ function createObject() {
 function checkLevelUp() {
     if (points >= level * 20) {
         level++;
-        objectSpeed += 1; // Zvýší se rychlost
-        objectInterval = Math.max(200, objectInterval * 0.9); // Zkrácení intervalu
+        objectSpeed += 1; // Zvýšení rychlosti
+        objectInterval = Math.max(200, objectInterval * 0.9); // Zkrácení intervalu generování
         clearInterval(objectGenerationInterval);
         objectGenerationInterval = setInterval(createObject, objectInterval);
     }
@@ -86,9 +108,7 @@ function checkLevelUp() {
 // Konec hry
 function endGame(isWin) {
     clearInterval(objectGenerationInterval);
-    const message = isWin
-        ? "Herzlichen Glückwunsch! Du hast gewonnen!"
-        : "Spiel vorbei. Versuch es noch einmal.";
+    const message = isWin ? "Herzlichen Glückwunsch! Du hast gewonnen!" : "Spielende. Versuch es noch einmal.";
     alert(message);
     location.reload();
 }

@@ -81,3 +81,28 @@ body {
   .language-switcher a:hover {
 	color: #000;
   }
+
+  #controls button {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    font-size: 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#controls button:active {
+    background-color: #0056b3;
+}
+
+#left-button, #right-button {
+  width: 60px; /* nebo větší podle potřeby */
+  height: 60px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+
