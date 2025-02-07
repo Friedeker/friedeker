@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generátor hesel</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Generátor hesel</h1>
+
+	<h1>Vygenerujte si bezpečné heslo. Vygenerované heslo se neukládá do žádné historie.</h1>
+    
+    <label for="length">Délka hesla (5-20 znaků):</label>
+	
+	<input type="number" id="length" min="5" max="20" value="10">
+    <br>
+	<br>
+    <label for="special">Speciální znaky v (%):</label>
+   
+	<input type="number" id="special" min="0" max="100" value="20">
+	<br>
+	<br>
+    <button id="generate">Vygeneruj heslo</button>
+    <br>
+	<br>
+    <input type="text" id="password-output" readonly>
+    <br>
+	<br>
+    <button id="copy">Zkopíruj pro sebe</button>
+	<br>
+	<br>
+
+    <script src="index.js"></script>
+
+	<div class="navigation-buttons">
+        <button onclick="window.location.href='../index.html'" class="right">Návrat na úvodní stránku</button>
+    </div>
+	
+
+	<div class="language-switcher">
+        <a href="index.de.html" class="language-link">
+            Deutsch
+        </a>
+    </div>
+
+
+    <div class="watermark">Ing. Miroslav Uhlíř</div> 
+
+</body>
+</html>
