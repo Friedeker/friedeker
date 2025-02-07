@@ -1,14 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
     background: linear-gradient(135deg, #a8e6cf, #dcedc1);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    margin: 0;
-}
+   }
 
 
 .watermark {
