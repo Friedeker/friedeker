@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generátor hesel</title>
-	<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Generátor hesel</h1>
-	<br>
-	<br>
-	<h1>Vygenerujte si bezpečné heslo. Vygenerované heslo se neukládá do žádné historie.</h1>
     <br>
-	<br>
+    <br>
+    <p><mark><strong>Vygenerovat můžete heslo v rozsahu 10–20 znaků s možností nastavení procentuálního zastoupení speciálních znaků.
+        Pokud nezvolíte jinak, heslo bude mít 15 znaků, z toho 3 speciální. Kód je napsán v JavaScriptu a běží přímo ve vašem prohlížeči, takže heslo se nikam neodesílá ani neukládá.
+        Pravděpodobnost, že útočník vaše heslo náhodně uhodne, je menší než 1 ku kvintilionům. Takové heslo je velmi silné, ale nezapomeňte dbát i na zabezpečení správce hesel, pokud jej používáte.</strong></mark></p>
+    <br>
+    <br>
     <label for="length">Délka hesla (5-20 znaků):</label>
-	
-	<input type="number" id="length" min="5" max="20" value="10">
+
+    <input type="number" id="length" min="5" max="20" value="15">
     <br>
-	<br>
-    <label for="special">Speciální znaky v (%):</label>
-   
-	<input type="number" id="special" min="0" max="100" value="20">
-	<br>
-	<br>
+    <br>
+    <label for="special">Speciální znaky (v %):</label>
+
+    <input type="number" id="special" min="0" max="100" value="20">
+    <br>
+    <br>
     <button id="generate">Vygeneruj heslo</button>
     <br>
-	<br>
+    <br>
     <input type="text" id="password-output" readonly>
     <br>
-	<br>
+    <br>
     <button id="copy">Zkopíruj pro sebe</button>
-	<br>
-	<br>
+    <br>
+    <br>
 
     <script src="index.js"></script>
 
-	<div class="navigation-buttons">
+    <div class="navigation-buttons">
         <button onclick="window.location.href='../index.html'" class="right">Návrat na úvodní stránku</button>
     </div>
-	
 
-	<div class="language-switcher">
+
+    <div class="language-switcher">
         <a href="index.de.html" class="language-link">
             Deutsch
         </a>
     </div>
 
 
-    <div class="watermark">Ing. Miroslav Uhlíř</div> 
+    <div class="watermark">Ing. Miroslav Uhlíř</div>
 
 </body>
+
 </html>

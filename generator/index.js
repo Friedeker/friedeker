@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (passwordOutput.value) {
             navigator.clipboard.writeText(passwordOutput.value).then(() => {
                 alert("Heslo bylo zkopírováno.");
-				}).catch(() => {
+                passwordOutput.value = "";
+			}).catch(() => {
                 alert("Chyba při kopírování.");
             });
         } else {

@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (passwordOutput.value) {
                 navigator.clipboard.writeText(passwordOutput.value).then(() => {
                     alert("Das Passwort wurde kopiert.");
+                    passwordOutput.value = "";
                    }).catch(() => {
                     alert("Fehler beim Kopieren.");
                 });

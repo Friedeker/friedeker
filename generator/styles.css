@@ -1,3 +1,8 @@
+p {
+  text-align: justify;
+  hyphens: auto;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #a8e6cf, #dcedc1);
