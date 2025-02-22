@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title></title>
+	<link rel="stylesheet" href="styles.css">
+    <style>
+
+        #msg_body {
+
+            font-family: Arial, sans-serif;
+
+            margin: 20px;
+
+            padding: 20px;
+
+            max-width: 150px;
+
+        }
+
+        input, button {
+
+            width: 30%;
+
+            padding: 10px;
+
+            margin: 5px 0;
+
+        }
+
+        #result {
+
+            font-weight: bold;
+
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+	<p> Die Gewinnschwelle gibt die Produktionsmenge an, bei der weder Gewinn noch Verlust erzielt wird.
+		Formel zur Berechnung des Break-Even-Points:
+        Q = FK / (p - b)
+
+        Erklärung der Abkürzungen:
+        FK - Fixkosten (bleiben unabhängig von der Produktionsmenge konstant)
+        p - Stückpreis
+        b - Variable Kosten pro Stück
+		<br>
+		<br>
+		Quellenangabe:<a href="https://de.wikipedia.org/wiki/Gewinnschwelle" target="_blank">Wikipedie</a>
+		<br>
+		<br>
+    </p>
+
+
+
+
+    <h2>Berechnung der Gewinnschwelle</h2>
+
+   
+
+    <label for="fn">Fixkosten (FK):</label>
+	<br>
+
+    <input type="number" id="fn" placeholder="Geben Sie die Fixkosten ein" required>
+
+    <br>
+	<br>
+
+    <label for="b">Die Variable Kosten (VK):</label>
+	<br>
+    <input type="number" id="b" placeholder="Geben Sie die Variable Kosten ein" required>
+	<br>
+	<br>
+   
+
+    <label for="p">Verkaufspreis pro Stück (VP):</label>
+	<br>
+    <input type="number" id="p" placeholder="Geben Sie den Verkaufspreis ein" required>
+
+	<br>
+	<br>
+
+    <button onclick="vypocetBoduZvratu()">Berechnen</button>
+
+
+    <p id="result"></p>
+
+	<script src="index.de.js"></script>
+
+    <div class="navigation-buttons">
+        <button onclick="window.location.href='../index.html'" class="right">Zurück zur Startseite</button>
+    </div>
+
+    <div class="language-switcher">
+        <a href="index.html" class="language-link">
+            Česky
+        </a>
+    </div>
+
+    <div class="watermark">Miroslav Uhlíř</div> 
+
+</body>
+
+</html>
